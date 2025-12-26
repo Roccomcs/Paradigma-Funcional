@@ -12,7 +12,7 @@ data Barbaro = UnBarbaro {
     nombre :: String,
     fuerza :: Int,
     habilidades :: [Habilidades],
-    objetos :: [Objeto]
+    objetos :: [Objeto] 
     } 
 
 dave :: Barbaro
@@ -43,7 +43,7 @@ agregarHabilidad2 :: Habilidades -> Barbaro -> Barbaro
 agregarHabilidad2 unaHabilidad unBarbaro = mapHabilidades (unaHabilidad :) unBarbaro
 
 convertirAMayusculas :: [String] -> [String]
-convertirAMayusculas listaHabilidades = map (map toUpper)  listaHabilidades 
+convertirAMayusculas listaHabilidades = map (map toUpper) listaHabilidades 
 -- * toUpper va de Char -> Char, debemos mapear el string
 
 concatenar :: [String] -> [String]
@@ -115,7 +115,7 @@ espadas :: Int -> Objeto
 espadas pesoEspada unBarbaro = mapFuerza (+ pesoEspada * 2) unBarbaro
 
 amuletosMisticos :: Habilidades -> Objeto
-amuletosMisticos unaHabilidad unBarbaro= mapHabilidades (++[unaHabilidad]) unBarbaro 
+amuletosMisticos unaHabilidad unBarbaro = mapHabilidades (++[unaHabilidad]) unBarbaro 
 
 varitasDefectuosas :: Objeto
 varitasDefectuosas unBarbaro = agregarHabilidad "hacerMagia" . desaparecerObjetos $ unBarbaro

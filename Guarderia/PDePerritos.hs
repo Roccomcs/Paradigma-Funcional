@@ -110,7 +110,7 @@ tiempoDeRutina unaGuarderia = sum . map tiempoDeActividad $ rutina unaGuarderia
 
 perrosResponsables :: Perrito -> Bool
 perrosResponsables unPerrito
-  | tieneMasDeNJuguetes 3 . diaDeCampo $ unPerrito= True
+  | tieneMasDeNJuguetes 3 . diaDeCampo $ unPerrito = True
   | otherwise = False
 
 tieneMasDeNJuguetes :: Int -> Perrito -> Bool

@@ -1,0 +1,57 @@
+Infinity Haskell 
+Y las Guerras infinitas de los vengadores (si, en español no tiene tanto punch) llegaron a PdeP, no te lo esperabas, ¿eh?.  Modelaremos algunos de sus elementos, ¡pero nada de spoilers!
+
+Parte A
+
+1. Modelar Personaje, estos tienen: nombre, una cantidad de poder y una lista de derrotas (léase, las veces que derrotó a alguien). Cada derrota tiene el nombre de su oponente y el año en el que ocurrió.
+
+2. Modelar entrenamiento, el cual lo realizan un grupo de personajes y multiplica el poder de cada uno de ellos por la cantidad de personajes que están entrenando al mismo tiempo.
+
+3. Modelar rivalesDignos, que dado un grupo de personajes nos dice quienes son rivales para Thanos. Son dignos aquellos personajes que, luego de haber entrenado,  tienen un poder mayor a 500 y además alguna de sus derrotas se llame "Hijo de Thanos".
+
+4. Modelar guerraCivil, la cual dado un año y dos conjuntos de personajes hace que cada personaje pelee con su contraparte de la otra lista y nos dice quienes son los ganadores. Cuando dos personajes pelean, gana el que posee mayor poder y se le agregará la derrota del perdedor a su lista de derrotas con el año en el que ocurrió. Por ejemplo...
+
+
+guerraCivil 2018 [scarletWitch, capitanAmerica, blackWidow] [vision, ironMan, spiderman] 
+
+...hará que Scarlet Witch pelee contra Vision, el Capitán América contra Iron Man y Black Widow contra Spiderman.
+
+Parte B 
+
+Ahora aparecen los equipamientos: estos son objetos de poder que dado un personaje modifican sus habilidades de manera extraordinaria. Asimismo, sabemos que los personajes tienen varios equipamientos.
+
+1. Escribir el tipo de un Equipamiento y modificar el modelo de Personaje para que acepte equipamientos.
+
+2. Tenemos equipamientos generales como por ejemplo escudo y trajeMecanizado. Modelar los siguientes equipamientos.
+
+escudo: si tiene menos de 5 derrotas le suma 50 de poder, pero si tiene 5 o más le resta 100 de poder. 
+trajeMecanizado: devuelve el personaje anteponiendo "Iron" al nombre del personaje y le agrega una versión dada al final del mismo. Por ejemplo:
+Si el personaje se llama "Groot" y la versión del traje es 2 , su nombre quedaría "Iron Groot V2"
+
+3. También tenemos equipamientos exclusivos que solo lo pueden usar determinados personajes, por ejemplo: stormBreaker solo lo puede usar Thor, guantelete del Infinito sólo lo puede usar Thanos, gemaDelAlma sólo lo puede usar Thanos. Modelar:
+
+stormBreaker: Le agrega "dios del trueno" al final del nombre y limpia su historial de derrotas ya que un dios es bondadoso.
+gemaDelAlma: Añade a la lista de derrotas a todos los extras, y cada uno con un año diferente comenzando con el actual. Considerar que hay incontables extras. Por ejemplo: 
+
+[("extra numero 1", 2018), ("extra numero 2", 2019), …]
+
+guanteleteInfinito: Aplica todos los equipamientos que sean gemas del infinito al personaje. Usar la función sin definirla esGemaDelInfinito la cual recibe un equipamiento y nos dice si la misma es o no una gema del infinito. 
+
+>> esGemaDelInfinito escudo
+False
+>> esGemaDelInfinito gemaDelAlma
+True
+
+Parte C
+
+Black Widow tiene infinitas derrotas:
+¿Qué pasará si le decimos que utilice el escudo? Justificá.
+¿Qué pasará si al usar rivalesDignos, blackWidow formase parte de la lista que pasamos por parámetro? Justificá
+¿Podemos conseguir las primeras 100 derrotas de Thanos luego de usar la gema del alma? Justificá.
+
+Aclaraciones
+
+Todas las funciones deberán estar tipadas.
+NO repetir lógica.
+Usar composición siempre que sea posible.
+Poner número y nombre a todas las hojas. 
